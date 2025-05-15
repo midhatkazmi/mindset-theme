@@ -25,7 +25,7 @@ function mindset_enqueues() {
         array( 'strategy' => 'defer' ) 
     );
 
-    if (is_page('contact')) {
+    if (is_page('15')) {
         wp_enqueue_script(
             'mindset-scroll-to-top-color', 
             get_theme_file_uri( 'assets/js/scroll-to-top-color.js' ), 
@@ -65,3 +65,6 @@ function mindset_add_custom_image_sizes( $size_names ) {
 	return array_merge( $size_names, $new_sizes );
 }
 add_filter( 'image_size_names_choose', 'mindset_add_custom_image_sizes' );
+
+// Load custom blocks.
+require get_theme_file_path() . '/mindset-blocks/mindset-blocks.php';
