@@ -103,31 +103,51 @@ function fwd_render_service_posts( $attributes ) {
 	
 			echo '</nav>';
 		}
-	
-		$args = array(
-			'post_type'      => 'fwd-service',
-			'posts_per_page' => -1,
-			'order'          => 'ASC',
-			'orderby'        => 'title',
+
+		$terms = get_terms(
+			array(
+				'taxonomy' => 'fwd-service-category',
+			)
 		);
-				
-		$query = new WP_Query( $args );
-				
-		if ( $query -> have_posts() ) {
-			echo '<section>';
-	
-			while ( $query -> have_posts() ) {
-				$query -> the_post();
-	
-				echo '<article id="'. esc_attr( get_the_ID() ) .'">';	
-					echo '<h2>' . esc_html( get_the_title() ) . '</h2>';
-					the_content();
-				echo '</article>';
-				
+		if ( $terms && ! is_wp_error($terms) ) {
+			foreach ( $terms as $term ) {
+				// Add your WP_Query() code here
+				// Use $term->slug in your tax_query
+				// Use $term->name to organize the posts
+				$args = array(
+					'post_type'      => 'fwd-service',
+					'posts_per_page' => -1,
+					'order'          => 'ASC',
+					'orderby'        => 'title',
+					'tax_query'		 => array(
+						array(
+							'taxonomy' => 'fwd-service-category',
+							'field'    => 'slug',
+							'terms'    => $term->slug
+						)
+					)
+				);
+						
+				$query = new WP_Query( $args );
+						
+				if ( $query -> have_posts() ) {
+					echo '<section>';
+					echo '<h2>' . $term->name . '</h2>';
+			
+					while ( $query -> have_posts() ) {
+						$query -> the_post();
+			
+						echo '<article id="'. esc_attr( get_the_ID() ) .'">';	
+							echo '<h3>' . esc_html( get_the_title() ) . '</h3>';
+							the_content();
+						echo '</article>';
+						
+					}
+					wp_reset_postdata();
+			
+					echo '</section>';
+				}
 			}
-			wp_reset_postdata();
-	
-			echo '</section>';
 		}
 		?>
 	</div>
