@@ -65,7 +65,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<>
-			<address {...useBlockProps()}>
+			<div {...useBlockProps()}>
 				{svgIcon && (
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ export default function Edit({ attributes, setAttributes }) {
 					value={company_email}
 					onChange={(nextValue) => updateMeta("company_email", nextValue)}
 				/>
-			</address>
+			</div>
 			<InspectorControls>
 				<PanelBody title={__("Settings", "mindset-blocks")}>
 					<PanelRow>

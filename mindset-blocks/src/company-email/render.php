@@ -10,4 +10,4 @@
 		</svg>
 	<?php endif; ?>
 	<p><?php echo wp_kses_post( get_post_meta( 15, 'company_email', true ) ); ?></p>
-</address>	
+</address>

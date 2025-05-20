@@ -66,7 +66,15 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'typography' => array(
+				'textAlign' => true,
+				'fontSize' => true
+			),
+			'spacing' => array(
+				'padding' => true,
+				'margin' => true
+			)
 		),
 		'attributes' => array(
 			'startingYear' => array(
