@@ -1,9 +1,29 @@
 <!-- wp:group {"layout":{"type":"constrained","contentSize":"15rem"}} -->
-<div class="wp-block-group"><!-- wp:search {"label":"Search","buttonText":"Search"} /-->
+<div class="wp-block-group">
+	<!-- wp:search {"label":"Search","buttonText":"Search"} /-->
 
-<!-- wp:heading -->
-<h2 class="wp-block-heading">Recent posts</h2>
-<!-- /wp:heading -->
+	<!-- wp:heading -->
+	<h2 class="wp-block-heading">Recent posts</h2>
+	<!-- /wp:heading -->
 
-<!-- wp:latest-posts /--></div>
+	<!-- wp:latest-posts /-->
+
+	<!-- wp:heading -->
+	<h2 class="wp-block-heading">See Our Work</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:categories {"taxonomy":"fwd-work-category","showPostCounts":true} /-->
+
+	<!-- wp:heading -->
+	<h2 class="wp-block-heading">What They Say</h2>
+	<!-- /wp:heading -->
+
+	<!-- wp:query {"queryId":11,"query":{"perPage":10,"pages":0,"offset":0,"postType":"fwd-testimonial","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[],"taxQuery":{"fwd-featured":[16]}}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template -->
+		<!-- wp:post-content /-->
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+</div>
 <!-- /wp:group -->
