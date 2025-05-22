@@ -140,8 +140,7 @@ function fwd_render_service_posts( $attributes ) {
 						
 				if ( $query -> have_posts() ) {
 					echo '<section>';
-					// echo '<h2>' . esc_html( $term->name ) . '</h2>
-					echo '<h2>' . $term->name . '</h2>';
+					echo '<h2>' . esc_html( $term->name ) . '</h2>';
 			
 					while ( $query -> have_posts() ) {
 						$query -> the_post();
